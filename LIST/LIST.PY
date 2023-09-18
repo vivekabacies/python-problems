@@ -1,3 +1,6 @@
+import copy
+
+
 # Python program to interchange first and last elements in a list
 my_list = [1, 2, 3, 4]
 if len(my_list) >= 2:
@@ -76,6 +79,7 @@ print(result)
 multiply  = lambda x,y:x*y
 result = multiply(5,8)
 print(result)
+
 
 # Python program to find smallest number in a list
 my_list = [555,5,44,6,9,9,8,6,1]
@@ -174,3 +178,153 @@ is_positive = lambda x: x > 0
 positive_numbers = [i for i in my_list if is_positive(i)]
 for i in positive_numbers:
     print(f"Is positive {i}")
+
+
+#Python program to print negative numbers in a list
+my_list = [1, 2, 3, -1, -5, -10]
+for i in my_list:
+    if i < 0:
+        print("Is_Negative ",i)
+
+Is_Nagetive = lambda x : x < 0  
+for i in my_list:
+    if Is_Nagetive(i):
+        print("Is_Negative :", i)
+
+Is_Nagetive = lambda x : x < 0  
+if Is_Nagetive(-1):
+    print("Is Negative")
+else:
+    print("Not Negative")
+
+
+# Python program to print all positive numbers in a range
+for i in range (-3,3):
+    if i > 0:
+        print("Is_Positive",i)
+    else:
+        print("Not Positive",i)
+
+Is_positive = lambda x : x > 0
+for i in range (-3,3):
+    if Is_positive(i):
+        print("Is_Positive",i)
+    else:
+        print("Not Positive",i)
+
+
+# Python program to print all negative numbers in a range
+for i in range (-3,3):
+    if i < 0:
+        print("Is Negative",i)
+    else:
+        print("Not Negative",i)
+
+Is_positive = lambda x : x < 0
+for i in range (-3,3):
+    if Is_positive(i):
+        print("Is Negative",i)
+    else:
+        print("Not Negative",i)
+
+
+# Remove multiple elements from a list in Python
+my_list = [1, 2, 3, 4, 5,"Apple","Orange"]
+elements_to_remove = [1, 2, 3, 4, 5]
+new_list = [i for i in my_list if i not in elements_to_remove]
+print(new_list)
+
+
+# Python – Remove empty List from List
+my_list = [[1, 2, 3], [], [4, 5], [], [6, 7, 8], []]
+filtered_list = [i for i in my_list if i]
+print(filtered_list)
+
+
+# Python | Cloning or Copying a list
+original_list = [1, 2, 3, 4, 5]
+cloned_list = original_list[:]
+print(cloned_list)
+
+original_list = [1, 2, 3, 4, 5]
+cloned_list = copy.copy(original_list)
+print(cloned_list)
+
+original_list = [[1, 2], [3, 4], [5, 6]]
+deep_cloned_list = copy.deepcopy(original_list)
+print(deep_cloned_list)
+
+
+# Python | Count occurrences of an element in a list
+my_list = [1, 2, 2, 3, 4, 2, 5]
+count_mylist = my_list.count(2)
+print(count_mylist)
+
+my_list = [1, 2, 2, 3, 4, 2, 5]
+element_to_count = 2
+count = len([i for i in my_list if i == element_to_count])
+print(count)  
+
+
+# Python | Remove empty tuples from a list
+my_list = [(1, 2), (), (3, 4), (), (), (5, 6)]
+filtered_list = [i for i in my_list if i]
+print(filtered_list)
+
+# Python | Program to print duplicates from a list of integers
+my_list = [1, 2, 3, 2, 4, 5, 4, 6]
+count_dict = {}
+for num in my_list:
+    if num in count_dict:
+        count_dict[num] += 1
+    else:
+        count_dict[num] = 1
+print("Duplicate integers in the list:")
+for num, count in count_dict.items():
+    if count > 1:
+        print(f"{num} appears {count} times")
+
+
+# Python program to find Cumulative sum of a list
+my_list = [1, 2, 3, 4, 5]
+cumulative_sum = []
+current_sum = 0
+for num in my_list:
+    current_sum += num
+    cumulative_sum.append(current_sum)
+print("Cumulative sum using loop:", cumulative_sum)
+
+my_list = [1, 2, 3, 4, 5]
+cumulative_sum = [sum(my_list[:i+1]) for i in range(len(my_list))]
+print("Cumulative sum using list comprehension:", cumulative_sum)
+
+
+# Function to calculate the sum of the digits of a number
+def sum_of_digits(number):
+    total = 0
+    while number > 0:
+        total += number % 10  
+        number //= 10         
+    return total
+my_list = [123, 45, 789, 12]
+sum_of_digits_list = [sum_of_digits(number) for number in my_list]
+print("Sum of digits for each number in the list:", sum_of_digits_list)
+
+
+# Break a list into chunks of size N in Python
+def chunk_list(input_list, chunk_size):
+    for i in range(0, len(input_list), chunk_size):
+        yield input_list[i:i + chunk_size]
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+chunk_size = 3
+result = list(chunk_list(my_list, chunk_size))
+print(result)
+
+
+# Python | Sort the values of first list using second list
+list1 = [3, 1, 2, 4]
+list2 = ["apple", "banana", "cherry", "date"]
+pairs = list(zip(list2, list1))
+sorted_pairs = sorted(pairs, key=lambda x: x[1])
+sorted_list1 = [pair[1] for pair in sorted_pairs]
+print(sorted_list1)
